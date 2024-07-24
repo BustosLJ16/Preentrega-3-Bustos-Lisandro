@@ -8,7 +8,7 @@ function renderCarrito(){
     if (totalProductos() > 0) {
         for (const producto of carrito){
             contenidoHTML += `<tr>
-            <td><img src="../assets/${producto.imagen}" alt="${producto.nombre}" width="48"></td>
+            <td><img src="../assets/imagenes-productos/${producto.imagen}" alt="${producto.nombre}" width="48"></td>
             <td class="align-middle">${producto.nombre}</td>
             <td class="text-center align-middle"><span class="card-text text-center text-danger">$${producto.precio} ARS</span></td>
             <td class="text-end align-middle"><button class="btn btn-danger btn-sm" onclick="eliminarCarrito(${producto.id});";">Eliminar <i class="bi bi-x-circle"></i></button></td>
@@ -18,13 +18,15 @@ function renderCarrito(){
             <td></td>
             <td></td>
             <td class="text-center align-middle">
-            <span class="card-text text-center text-danger"><p>Su total a pagar es de: $${calcularTotal()} ARS</p></span></td>
+            <span class="card-text text-center text-danger"><p>Su total a pagar es de:</p> <p><strong> $${calcularTotal()} ARS</strong></p></span></td>
             </tr>`
         contenidoHTML += `<tr>
             <td><input type="text" class="form-control" id="cupon" placeholder="Ingrese Su cupón Aquí"></td>
             <td><button type="button" class="btn btn-primary mb-3" name="Enviar" value="Enviar" onclick="recibir();">Confirmar Cupón</button></td>
             <td class="text-center align-middle">
-            <span class="card-text text-center text-danger"><p id="precioFinal"></p></span></td>
+                <span class="card-text text-center text-danger">
+                    <p id="mensajeFinal"></p> <strong><p id="precioFinal"></p></strong>
+                </span></td>
             </tr>`
 
         contenidoHTML +=`</tbody>
